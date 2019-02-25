@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Random Beer App!</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="jquery-pageload-0.1.js"></script>
+	<link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+	<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="webjars/jquery/1.11.1/jquery.min.js"></script>
+	<style>
+		.center-card {		
+		    position: fixed;
+		    top: 20%;
+		    left: 50%;
+		    margin-top: -100px;
+		    margin-left: -250px;
+		}
+	</style>
+</head>
+<body>
+		<div class="card text-center center-card" style="max-width: 50rem;">
+		  	<ul class="list-group list-group-flush">
+			  	<li class="list-group-item card-title name h1"></li>
+			  	<li class="list-group-item description"></li>
+			    <li class="list-group-item abv"><b>ABV(%):</b> </li>
+			    <li class="list-group-item brewery"><b>Brewery:</b> </li>
+  			</ul>
+  			<div class="card-body">
+		    	<button type="button" class="btn btn-primary" onclick="changeBeer()">Show Another Beer</button>
+		  	</div>
+		</div>
+	<script>
+		function changeBeer()	{
+			$(document).ready(function() {
+			    $.ajax({
+			        url: "http://localhost:8080/beers"
+			    }).then(function(data) {
+			    	$('.id').append(data.id);
+			    	$('.name').append(data.name);
+			    	$('.description').append(data.description);
+			    	$('.abv').append(data.abv);
+			    	$('.brewery').append(data.brewery);
+			    });
+			    location.reload();
+			});
+		}
+	</script>
+</body>
+</html>
