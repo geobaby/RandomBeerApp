@@ -12,5 +12,7 @@ Clone project to local, open with STS IDE (Spring Tool Suite)
 Run as Spring Boot App.
 Go to http://localhost:8080/index.html
 
+Beer data is stored as JSON in beers.json file in /config folder. There are details of 10 different beers.
+
 # Description
 Displays beer information (Name, Description, ABV (Alcohol By Volume), Brewery) in card layout (using bootstrap) with a button to change the current beer.
